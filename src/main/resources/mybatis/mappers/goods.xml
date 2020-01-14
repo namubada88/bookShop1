@@ -35,7 +35,7 @@
         <result property="fileType" column="fileType"/>
     </resultMap>
 
-    <resultMap id="orderGoodsResult" type="OrderVO">
+<!--    <resultMap id="orderGoodsResult" type="OrderVO">
         <result property="order_id" column="order_id"/>
         <result property="member_id" column="member_id"/>
         <result property="goods_id" column="goods_id"/>
@@ -69,7 +69,7 @@
         <result property="goods_qty" column="goods_qty"/>
 
         <result property="goods_fileName" column="goods_fileName"/>
-    </resultMap>
+    </resultMap>-->
 
     <select id="selectGoodsList" parameterType="String" resultMap="goodsResult">
         <![CDATA[

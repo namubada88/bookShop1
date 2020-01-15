@@ -22,16 +22,17 @@
 
 
 
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+<!--    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/views/" />
         <property name="suffix" value=".jsp"/>
         <property name="order" value="2"/>
-    </bean>
+    </bean>-->
 
     <!-- /*/*.do 파일은 인터셉터를 이용하여 view 이름만 추출함 -->
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/*/*.do"/>
+            <mvc:mapping path="/*/*/*.do"/>
             <bean class="com.myshop.interceptor.ViewNameInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
@@ -41,6 +42,5 @@
         <property name="maxInMemorySize" value="1000000"/>
         <property name="defaultEncoding" value="utf-8"/>
     </bean>
-
 
 </beans>

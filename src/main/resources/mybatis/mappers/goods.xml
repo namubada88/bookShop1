@@ -73,15 +73,15 @@
 
     <select id="selectGoodsList" parameterType="String" resultMap="goodsResult">
         <![CDATA[
-        SELECT T.*
-        FROM(
-        SELECT G.*, D.fileName from T_SHOPPING_GOODS G, T_GOODS_DETAIL_IMAGE D
-        WHERE G.GOODS_ID=D.GOODS_ID
-        AND D.FILETYPE='MAIN_IMAGE'
-        AND GOODS_STAUTS=#{goodsStatus}
-        ORDER BY g.goods_creDate desc) T
-        WHERE rowNum <16
-        ]]>
+         select t.*
+          from(
+			select g.*,d.fileName from t_shopping_goods g, t_goods_detail_image d
+        	where g.goods_id=d.goods_id
+        	and d.filetype='main_image'
+        	and goods_status=#{goodsStatus}
+            order by g.goods_creDate desc)  t
+	             where   rowNum <16
+	    ]]>
     </select>
 
     <select id="selectNewGoodsList" resultMap="goodsResult" parameterType="java.util.Map">

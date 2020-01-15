@@ -2,10 +2,9 @@
   <artifact type="exploded-war" name="bookshop1:Web exploded">
     <output-path>$PROJECT_DIR$/out/artifacts/bookshop1_Web_exploded</output-path>
     <root id="root">
-      <element id="javaee-facet-resources" facet="bookshop1/web/Web" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="bookshop1" />
+          <element id="module-output" name="bookShop1" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: com.oracle:ojdbc6g:11.2.0" />
@@ -38,6 +37,7 @@
           <element id="library" level="project" name="Spring MVC-4.3.18.RELEASE" />
         </element>
       </element>
+      <element id="javaee-facet-resources" facet="bookShop1/web/Web" />
     </root>
   </artifact>
 </component>

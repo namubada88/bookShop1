@@ -17,15 +17,14 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Map;
 
-@Controller
+@Controller("mainController")
 @EnableAspectJAutoProxy
 public class MainController extends BaseController {
     @Autowired
     private GoodsService goodsService;
 
     @RequestMapping(value= "/main/main.do" ,method={RequestMethod.POST,RequestMethod.GET})
-    public String main(HttpServletRequest request, HttpServletResponse response) throws Exception{
-        System.out.println("===>Controller로 main 메소드 접속");
+    public ModelAndView main(HttpServletRequest request, HttpServletResponse response) throws Exception{
         HttpSession session;
         ModelAndView mav=new ModelAndView();
         String viewName=(String)request.getAttribute("viewName");
@@ -33,9 +32,9 @@ public class MainController extends BaseController {
 
         session=request.getSession();
         session.setAttribute("side_menu", "user");
-        Map<String, List<GoodsVO>> goodsMap=goodsService.listGoods();
+        Map<String,List<GoodsVO>> goodsMap=goodsService.listGoods();
         mav.addObject("goodsMap", goodsMap);
-        return "/main/main";
+        return mav;
     }
 }
 

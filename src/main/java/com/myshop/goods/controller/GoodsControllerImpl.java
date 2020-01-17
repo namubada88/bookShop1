@@ -66,6 +66,8 @@ public class GoodsControllerImpl extends BaseController implements GoodsControll
     public ModelAndView searchGoods(@RequestParam("searchWord") String searchWord,
                                     HttpServletRequest request, HttpServletResponse response) throws Exception{
         String viewName=(String)request.getAttribute("viewName");
+        System.out.println("===>Controller로 /searchGoods.do 실행");
+        System.out.println("/searchGoods.do의 viewName"+viewName);
         List<GoodsVO> goodsList=goodsService.searchGoods(searchWord);
         ModelAndView mav = new ModelAndView(viewName);
         mav.addObject("goodsList", goodsList);
